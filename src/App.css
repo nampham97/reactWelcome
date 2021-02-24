@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+li {
+  list-style-type: none;
+}
+
+.post {
+  margin-bottom: 4em;
+}
+
+.post h4 {
+  font-size: 2rem;
+}
