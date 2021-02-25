@@ -1,6 +1,6 @@
 import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 
-function NavbarCpn(){
+function NavbarCpn({totalItems}){
     return <div>
          <Navbar bg="light" expand="lg">
             <Navbar.Brand href="#home">
@@ -29,7 +29,7 @@ function NavbarCpn(){
                 <div className="navbar-brand">
                     <i className="fa fa-shopping-cart fa-lg m-2" aria-hidden="true" />
                     <span className="badge badge-pill badge-info m-2" style={{ width: 50 }}>
-                        0
+                        {totalItems}
                     </span>
                     Items
                 </div>
