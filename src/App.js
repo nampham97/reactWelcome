@@ -5,6 +5,10 @@ import Posts from './Component/Posts';
 
 import CounterWrap from './Component/counter_wrap';
 import { useState } from 'react';
+import Banner from './Component/Header/banner';
+import Header from './Component_snap/header';
+import FormSearh from './Component_snap/formSearch';
+
 
 function App() {
 
@@ -27,7 +31,6 @@ function App() {
   }
 
   let giamxuong = (counterby) =>{
-    console.log('counterby:', counterby);
     const counters = [...count];  //copy list
     const index = counters.indexOf(counterby);
     counters[index] = {...counters[index]}; //set all property to object by index - valid object
@@ -56,8 +59,16 @@ function App() {
     setCount(list_counter);
   }
 
+
+  //==================================== SNAPSHOT FUNCTION ================================
+
+
+
+
   return (
     <div className="App">
+      <Banner />
+      <div className="container">
         <Navbar totalItems = {count.filter(item => item.value > 0).length}/>
 
         <CounterWrap 
@@ -71,7 +82,14 @@ function App() {
 
         <br/>
         <Hello myName='Nampd'/>
-      <Posts />
+
+        <Header/>
+        <FormSearh/>
+
+
+
+        <Posts />
+      </div>
     </div>
   );
 }

@@ -49,3 +49,9 @@ li {
 .post h4 {
   font-size: 2rem;
 }
+
+.imgBanner{
+  width: 100%;
+  height: 250px;
+  background: no-repeat;
+}

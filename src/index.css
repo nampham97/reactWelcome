@@ -14,3 +14,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h2 {
+  font-size: 2em !important;
+  margin: 52px 0 40px;
+  text-transform: capitalize;
+  color: #051c33;
+}
+
+h1 {
+  font-family: "Lobster", "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-size: 4em !important;
+  color: #051c33;
+}
+
+
+.formSearch{
+  width: 500px;
+  display: flex;
+  margin: 0 auto 5%;
+
+}
+
+.formSearch button{
+  padding: 0 10px;
+  background-color: #051c33;
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.formSearch input{
+  border-radius: 0.5em 0 0 0.5em;
+  outline: none;
+  background-color: #cfd8e0;
+  border-right: none;
+  border: 2px solid #a4b5c3;
+  padding: 20px 10px;
+  font-size: 1em;
+  width: 100%;
+}
