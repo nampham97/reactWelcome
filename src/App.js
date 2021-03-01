@@ -7,8 +7,11 @@ import CounterWrap from './Component/counter_wrap';
 import { useState } from 'react';
 import Banner from './Component/Header/banner';
 import Header from './Component_snap/header';
-import FormSearh from './Component_snap/formSearch';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ItemInfoSearch from './Component_snap/Item';
+import SearchInfo from './Component_snap/SearchInfo';
+import NotFound from './Component_snap/NotFound';
+import PhotoContextProvider from './Context/photoContext';
 
 function App() {
 
@@ -61,15 +64,32 @@ function App() {
 
 
   //==================================== SNAPSHOT FUNCTION ================================
+  const renderSearch = (prop) => (
+    <Header handleSubmit = {handleSubmit} history={prop.history}/>
+  )
+    
 
+  const handleSubmit = (e, history, searchEntry) => {
+    e.preventDefault();
+    console.log(searchEntry);
+    let url = `/search/${searchEntry}`;
+    history.push(url);
+    console.log('history:', history);
+  }
 
+  const renderSearchInput = (prop) =>{
+    console.log('propne:' ,prop);
+    return <SearchInfo searchCondtion={prop.match.params.searchInput}></SearchInfo>
+  }
 
 
   return (
+    <PhotoContextProvider>
     <div className="App">
+      <BrowserRouter>
       <Banner />
-      <div className="container">
         <Navbar totalItems = {count.filter(item => item.value > 0).length}/>
+      <div className="container">
 
         <CounterWrap 
           list_counter={count}
@@ -83,14 +103,28 @@ function App() {
         <br/>
         <Hello myName='Nampd'/>
 
-        <Header/>
-        <FormSearh/>
 
+        <Route render = {renderSearch}>
+        </Route>
 
+        <Switch>
+          <Route exact path="/Travel" render={() => <ItemInfoSearch searchCondtion='Travel'/>}></Route>
+          <Route exact path="/Car" render={() => <ItemInfoSearch searchCondtion='Car'/>}></Route>
+          <Route exact path="/Fashion" render={() => <ItemInfoSearch searchCondtion='Fashion'/>}></Route>
+          <Route exact path="/Animals" render={() => <ItemInfoSearch searchCondtion='Animals'/>}></Route>
+
+          <Route exact path='/search/:searchInput' render={renderSearchInput}/>
+
+          
+          <Route component={NotFound}/>
+        </Switch>
 
         <Posts />
       </div>
+      </BrowserRouter>
+
     </div>
+    </PhotoContextProvider>
   );
 }
 

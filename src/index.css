@@ -32,13 +32,21 @@ h1 {
 .formSearch{
   width: 500px;
   display: flex;
-  margin: 0 auto 5%;
+  margin: 0 auto 1%;
 
 }
 
 .formSearch button{
   padding: 0 10px;
   background-color: #051c33;
+  border-radius: 0 0.5em 0.5em 0;
+  display: none;
+}
+
+.formSearch button.active{
+  display: inline;
+  padding: 0 10px;
+  background-color: #051c33!important;
   border-radius: 0 0.5em 0.5em 0;
 }
 
@@ -51,4 +59,22 @@ h1 {
   padding: 20px 10px;
   font-size: 1em;
   width: 100%;
+}
+
+.navNavi{
+  width: 90%;
+}
+.navNavi > .ulNav > li{
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 0 5px;
+  margin: 0 auto 1% 5%;
+}
+
+.navNavi > .ulNav > li > a{
+  text-decoration: none;
+  background-color: #051c33;
+  color: white;
+  border-radius: 0.5em 0.5em;
+  width: 5em;
 }
