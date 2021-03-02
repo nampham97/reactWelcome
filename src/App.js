@@ -70,14 +70,14 @@ function App() {
 
   const handleSubmit = (e, history, searchEntry) => {
     e.preventDefault();
-    console.log(searchEntry);
+    // console.log(searchEntry);
     let url = `/search/${searchEntry}`;
     history.push(url);
-    console.log('history:', history);
+    // console.log('history:', history);
   }
 
   const renderSearchInput = (prop) =>{
-    console.log('propne:' ,prop);
+    // console.log('propne:' ,prop);
     return <SearchInfo searchCondtion={prop.match.params.searchInput}></SearchInfo>
   }
 
@@ -89,7 +89,7 @@ function App() {
       <Banner />
         <Navbar totalItems = {count.filter(item => item.value > 0).length}/>
       <div className="container">
-        
+
         <Route render = {renderSearch}>
         </Route>
 
