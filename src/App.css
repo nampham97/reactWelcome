@@ -55,3 +55,61 @@ li {
   height: 250px;
   background: no-repeat;
 }
+
+
+/**fork */
+.forkongithub{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+}
+
+.forkongithub a{
+  color:cornflowerblue;
+  background-color: #051c33;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2rem;
+  transition: 0.4s;
+  padding: 5px 40px;
+
+  /**diaginal line */
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    width: 280px;
+    position: absolute;
+    top: 60px;
+    right: -65px;
+}
+
+.forkongithub a:hover{
+  text-decoration: none;
+  background-color: #ab1e54;
+  color: aqua;
+}
+
+.forkongithub a::before,
+.forkongithub a::after{
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #efede0;
+  height: 1px;
+  top: 1px;
+  left: 0;
+  width: 100%;
+}
+
+.forkongithub a::after{
+  top: auto;
+  bottom: 1px;
+}
+
+/**end fork */

@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
 import { PhotoContextCreate } from "../Context/photoContext";
+import Gallary from "./Gallary";
+import Loading from "./Loading";
 
 
 
@@ -7,14 +9,14 @@ import { PhotoContextCreate } from "../Context/photoContext";
 function Container({searchCondtion}){
     // <PhotoContext />
     const {image, isLoading, runQuery} = useContext(PhotoContextCreate);
-
-    useEffect( searchCondtion =>{
-        // runQuery(searchCondtion);
-        console.log('asssss');
-    }, ['searchCondtion']);
+    
+    useEffect( () =>{
+        runQuery(searchCondtion);
+        // eslint-disable-next-line
+    }, [searchCondtion]);
 
     return <div>
-        <h2>{searchCondtion}</h2>
+        {isLoading === true ? <Loading /> : <Gallary dataImg={image} />}
     </div>
 }
 

@@ -1,13 +1,12 @@
 import Navbar from './Component/Navbar';
 import './App.css';
-import Hello from './Component/Hello';
 import Posts from './Component/Posts';
 
 import CounterWrap from './Component/counter_wrap';
 import { useState } from 'react';
 import Banner from './Component/Header/banner';
 import Header from './Component_snap/header';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import ItemInfoSearch from './Component_snap/Item';
 import SearchInfo from './Component_snap/SearchInfo';
 import NotFound from './Component_snap/NotFound';
@@ -90,24 +89,13 @@ function App() {
       <Banner />
         <Navbar totalItems = {count.filter(item => item.value > 0).length}/>
       <div className="container">
-
-        <CounterWrap 
-          list_counter={count}
-          refresh = {lamtuoi}
-          recycle = {reset}
-          tang = {tanglen}
-          giam = {giamxuong}
-          xoa  = {xoaluon}
-        />
-
-        <br/>
-        <Hello myName='Nampd'/>
-
-
+        
         <Route render = {renderSearch}>
         </Route>
 
         <Switch>
+          <Route exact path="/" render={() => <Redirect to="/Travel" />} />
+
           <Route exact path="/Travel" render={() => <ItemInfoSearch searchCondtion='Travel'/>}></Route>
           <Route exact path="/Car" render={() => <ItemInfoSearch searchCondtion='Car'/>}></Route>
           <Route exact path="/Fashion" render={() => <ItemInfoSearch searchCondtion='Fashion'/>}></Route>
@@ -119,6 +107,16 @@ function App() {
           <Route component={NotFound}/>
         </Switch>
 
+        <CounterWrap 
+          list_counter={count}
+          refresh = {lamtuoi}
+          recycle = {reset}
+          tang = {tanglen}
+          giam = {giamxuong}
+          xoa  = {xoaluon}
+        />
+
+        <br/>
         <Posts />
       </div>
       </BrowserRouter>

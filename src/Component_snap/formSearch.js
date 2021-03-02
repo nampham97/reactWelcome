@@ -8,10 +8,11 @@ function FormSearh({handleSubmit, history}){
         setSearchEntry(e.target.value);
     });
 
+
     return <form className="formSearch"
                 onSubmit = {e => handleSubmit(e, history, searchEntry)}
             >
-        <input className="form form-control" placeholder="Keywords..."
+        <input className={searchEntry.length === 0 ? "form form-control noInput" : "form form-control"} placeholder="Keywords..."
             onChange = {onChangeInput}
             value = {searchEntry}
             ></input>

@@ -14,8 +14,9 @@ function PhotoContextProvider(props){
         const URL_API = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
         axios.get(URL_API)
         .then(response =>{
-            console.log('co chay vao ko:', query);
-            console.log('response:', response);
+            let data = response.data.photos.photo;     //data trả về từ API - query by keyword
+            setImage(data);
+            setIsLoading(false);
         })
         .catch(e => console.error('Loi ne: ', e));
     }
